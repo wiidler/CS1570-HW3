@@ -152,7 +152,8 @@ int main(){
                         cout << "Get ready, " << playerTwoName << "! It's now time to Wordle with " << playerOneName << "!" << endl << "You will have a total of 6 attempts to guess the word correctly." << endl << endl;
 
                         int victory = 0;
-                        while (attempts <= 6 && (attempts <= 6 && victory != 1)){ // This is the 6 attempts of the game
+                        int attemptsLeft = 6;
+                        while (attemptsLeft > 0 && victory != 1){ // This is the 6 attempts of the game
                             cout << "This is your attempt #" << attempts << ", " << playerTwoName << ", please enter a valid five-letter word (all UPPERCASE): ";
                             string guessWord;
                             while (guessWord.length() != 5 || any_of(guessWord.begin(), guessWord.end(), ::isdigit)|| !all_of(guessWord.begin(), guessWord.end(), ::isalpha)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
@@ -174,7 +175,6 @@ int main(){
                                 else{ // Outputs guess and hints if word meets all above criteria, ends game after 6 rounds and gives special failure message
                                     if (attempts == 6){
                                         cout << "You entered \"" << guessWord << "\". Sorry, you lose! The word was \"" << keyWord << "\"." << endl;
-                                        attempts += 1;
                                     }
                                     else{
                                         cout << "You entered \"" << guessWord << "\". Nice try, keep going!" << endl;
@@ -197,11 +197,13 @@ int main(){
                                         }
                                         roundResults += "\n";
                                         cout << endl;
-                                        attempts += 1; // Progresses the round
+                                        attempts++;
                                     }
                                 }
                             }
+                        attemptsLeft--;
                         }
+                    
                     endRoundSummary(roundNumber, playerOneName, playerTwoName, friendshipValue, attempts, victory);
                     returnToMenu = false;
                     }
