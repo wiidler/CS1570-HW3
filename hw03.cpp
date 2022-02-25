@@ -42,14 +42,13 @@ int main(){
     bool returnToMenu = false;
     string option = "-1";    
     string playerOneName = "";
-    string playerTwoName = "";
+    string playerTwoName = ""; // all parameters needed for initial switch - case statement
     string roundResults = "";
     int choice = -1;
     int roundNumber = 0;
     int friendshipValue = -1;
     int initialFV = -1;
     int attempts = 1;
-    int victory = 0;
 	greet();
     while (option != "5"){
         if (returnToMenu == false){
