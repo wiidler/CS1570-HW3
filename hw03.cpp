@@ -1,5 +1,6 @@
 // Programmer: Will Weidler
-// Date: 2/7/22
+// ID: wawq97
+// Date: 2/25/22
 // File: hw03.cpp
 // Assignment: HW3
 // Purpose: This file contains a clone of the popular game "Wordle".
